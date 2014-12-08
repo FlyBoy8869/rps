@@ -56,3 +56,9 @@ class WinnerTests (unittest.TestCase):
         player = computer = 'scissors'
 
         self.assertEqual(winner(player, computer), 'draw')
+
+    def test_invalid_choice(self):
+        player = 'bad choice'
+        computer = 'rock'
+
+        self.assertRaises(ValueError, winner, player, computer)

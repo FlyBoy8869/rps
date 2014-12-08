@@ -31,7 +31,7 @@ def winner(player, computer):
     :param player: the player's choice
     :type computer: str
     :param computer: the computer's choice
-    :return: the winner, i.e. 'player', 'computer', 'draw'
+    :return: 'player', 'computer', 'draw'
 
     >>> player = 'rock'
     >>> computer = 'scissors'
@@ -40,6 +40,7 @@ def winner(player, computer):
 
     """
 
+    # key is of the form 'player:computer'
     choices = {'rock:scissors': 'player',
                'paper:rock': 'player',
                'scissors:paper': 'player',
@@ -51,8 +52,8 @@ def winner(player, computer):
                'scissors:scissors': 'draw'
                }
 
-    win = choices.get(":".join([player, computer]), 'invalid')
-    if win != 'invalid':
+    win = choices.get(":".join([player, computer]), 'invalid choice')
+    if win != 'invalid choice':
         return win
     else:
         raise ValueError('invalid choice')
