@@ -3,12 +3,35 @@ __author__ = 'charles'
 import random
 
 
+def get_player_choice():
+    return input("Choose rock, paper, or scissors: ")
+
+
+def get_computer_choice():
+    """
+    Returns the computer's choice of either rock, paper, or scissors.
+
+    :return: rock, paper, or scissors
+    """
+    return random.choice(('rock', 'paper', 'scissors'))
+
+
 def winner(player, computer):
     """
-        >>> player = 'rock'
-        >>> computer = 'scissors'
-        >>> winner(player, computer)
-        'player'
+    Determines the winner of a rock, paper, scissors contest.
+
+    Raises ValueError if an invalid choice is given.
+
+    :type player: str
+    :param player: the player's choice
+    :type computer: str
+    :param computer: the computer's choice
+    :return: the winner, i.e. 'player', 'computer', 'draw'
+
+    >>> player = 'rock'
+    >>> computer = 'scissors'
+    >>> winner(player, computer)
+    'player'
 
     """
 
@@ -35,11 +58,11 @@ def play():
     c_score = 0
 
     while True:
-        player = input('Choose rock, paper or scissors: ')
+        player = get_player_choice()
         if player == 'quit':
             break
 
-        computer = random.choice(['rock', 'paper', 'scissors'])
+        computer = get_computer_choice()
 
         try:
             win = winner(player, computer)
