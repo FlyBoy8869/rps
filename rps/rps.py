@@ -4,6 +4,11 @@ import random
 
 
 def get_player_choice():
+    """
+    Returns the player's choice of either rock, paper, or scissors.
+
+    :return: rock, paper, or scissors
+    """
     return input("Choose rock, paper, or scissors: ")
 
 
