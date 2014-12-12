@@ -62,6 +62,9 @@ def winner(player, computer):
 def play():
     p_score = 0
     c_score = 0
+    num_games = 0
+    player_stats = {'rock': 0, 'paper': 0, 'scissors': 0}
+    computer_stats = {'rock': 0, 'paper': 0, 'scissors': 0}
 
     while True:
         player = get_player_choice()
@@ -77,9 +80,15 @@ def play():
             continue
 
         print("You chose: '{0}'".format(player))
+        player_stats[player] += 1
+
         print('The computer chose: {0}'.format(computer))
+        computer_stats[computer] += 1
 
         print('Winner: {0}'.format(win))
+
+        num_games += 1
+        print('Number of games played: {0}'.format(num_games))
 
         if win == 'player':
             p_score += 1
@@ -88,3 +97,6 @@ def play():
             c_score += 1
 
         print('player: {0} / computer: {1}'.format(p_score, c_score))
+
+    print('player choices:', player_stats)
+    print('computer choices:', computer_stats)

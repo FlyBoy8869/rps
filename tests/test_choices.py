@@ -15,5 +15,6 @@ class ChoicesTests (unittest.TestCase):
         self.assertIn(get_computer_choice(), ('rock', 'paper', 'scissors'))
 
     def test_player_choice(self):
+        # monkey patch the built-in input function
         rps.rps.input = my_input
         self.assertIn(get_player_choice(), ('rock', 'paper', 'scissors'))
