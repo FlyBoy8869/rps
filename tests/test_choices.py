@@ -1,4 +1,5 @@
 import unittest
+import unittest.mock
 import rps.rps
 from rps.rps import get_player_choice, get_computer_choice
 
@@ -9,12 +10,9 @@ def my_input(message):
     return 'rock'
 
 
-class ChoicesTests (unittest.TestCase):
+class ChoiceTests (unittest.TestCase):
 
-    def test_computer_choice(self):
-        self.assertIn(get_computer_choice(), ('rock', 'paper', 'scissors'))
-
-    def test_player_choice(self):
+    def test_player_should_choose(self):
         # monkey patch the built-in input function
-        rps.rps.input = my_input
+        rps.rps.input = unittest.mock.Mock(return_value='rock')
         self.assertIn(get_player_choice(), ('rock', 'paper', 'scissors'))
